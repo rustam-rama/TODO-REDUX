@@ -1,0 +1,9 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "title": "Пример задачи",
+      "completed": false
+    }
+  ]
+} 

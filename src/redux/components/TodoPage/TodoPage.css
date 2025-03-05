@@ -1,0 +1,61 @@
+.todo-page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1a1b26;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.todo-content {
+  width: 100%;
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-content h2 {
+  font-size: 24px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background: transparent;
+  border: 2px solid #9d7bff;
+  color: #9d7bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #9d7bff;
+  color: white;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.delete-button {
+  padding: 8px 16px;
+  background: #ff5f5f;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background: #ff4444;
+} 

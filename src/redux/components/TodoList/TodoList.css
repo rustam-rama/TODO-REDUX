@@ -1,0 +1,283 @@
+/* ============= Базовые стили приложения ============= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    /* Основные цвета */
+    --primary-color: #9d7bff;
+    --bg-dark: #1a1b26;
+    --bg-darker: #2d2e3d;
+    --text-light: #ffffff;
+    --text-muted: #6c7293;
+    
+    /* Размеры */
+    --container-width: 600px;
+    --border-radius: 20px;
+    --spacing-lg: 40px;
+    --spacing-md: 30px;
+  
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+  }
+  
+  /* ============= Глобальные стили компонентов ============= */
+  .app {
+    padding: 20px;
+  }
+  
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* ============= Уникальные стили TodoPage ============= */
+  .todo-page {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1a1b26;
+    border-radius: 20px;
+    color: #fff;
+  }
+  
+  /* ... остальные стили из TodoPage.css ... */
+  
+  /* ============= Уникальные стили TodoList ============= */
+  .todo-list-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1a1b26;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ... остальные стили из TodoList.css ... */
+  
+  /* ============= Общие компонентные стили ============= */
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1a1b26;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Элемент списка */
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background: #2d2e3d;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  /* Чекбокс */
+  .todo-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #9d7bff;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    appearance: none;
+    background: transparent;
+  }
+
+  .todo-checkbox:checked {
+    background: #9d7bff;
+  }
+
+  .todo-checkbox:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Текст задачи */
+  .todo-text {
+    flex: 1;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 450px;
+    transition: opacity 0.2s ease;
+  }
+
+  .todo-text:hover {
+    opacity: 0.8;
+  }
+
+  .todo-text.completed {
+    text-decoration: line-through;
+    color: #6c7293;
+  }
+
+  /* Контейнер для поиска и фильтров */
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Поле поиска */
+  .search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #2d2e3d;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    font-weight: 500;
+  }
+
+  .search-input::placeholder {
+    color: #ffffff;
+    opacity: 0.4;
+  }
+
+  /* Селект для фильтра */
+  .filter-select {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bg-darker);
+    color: var(--text-light);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .filter-select option {
+    background: var(--bg-dark);
+    color: var(--text-light);
+  }
+
+  /* Кнопка сортировки */
+  .sort-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #2d2e3d;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: default;
+    opacity: 0.9;
+    transition: background 0.3s ease;
+  }
+
+  .sort-button.enabled {
+    background: #9d7bff;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .sort-button.enabled:hover {
+    background: #8a6ae6;
+  }
+
+  /* Анимация при удалении/выполнении */
+  .todo-item.completed {
+    animation: fadeOut 0.3s ease;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0.6;
+      transform: translateX(10px);
+    }
+  }
+
+  /* Заголовок */
+  h1 {
+    color: #9d7bff;
+    font-size: 39px;
+    font-weight: 600;
+    margin-bottom: 44px;
+    text-align: center;
+  }
+
+  /* Форма добавления */
+  form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  form input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #2d2e3d;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    font-weight: 500;
+  }
+
+  form input::placeholder {
+    color: #ffffff;
+    opacity: 0.4;
+  }
+
+  form button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #9d7bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  /* Список задач */
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .no-todos {
+    text-align: center;
+    padding: 20px;
+    color: #6c7293;
+    font-size: 16px;
+    background: #2d2e3d;
+    border-radius: 10px;
+  }
