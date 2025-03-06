@@ -23,6 +23,13 @@ const todosSlice = createSlice({
         todo.completed = !todo.completed;
       }
     },
+    updateTodoSuccess: (state, action) => {
+      const { id, title } = action.payload;
+      const todo = state.list.find(todo => todo.id === id);
+      if (todo) {
+        todo.title = title;
+      }
+    },
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
       if (!action.payload) {
@@ -50,6 +57,7 @@ export const {
   fetchTodosSuccess,
   addTodoSuccess,
   toggleTodoSuccess,
+  updateTodoSuccess,
   setSearchQuery,
   toggleSort,
   setLoading,

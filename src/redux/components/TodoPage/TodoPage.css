@@ -1,10 +1,14 @@
 .todo-page {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #1a1b26;
-  border-radius: 20px;
-  color: #fff;
+  max-width: var(--container-width);
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md);
+  background: var(--bg-dark);
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 233px;
+  justify-content: space-between;
 }
 
 .todo-content {
@@ -12,7 +16,8 @@
   overflow-wrap: break-word;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20px 0;
 }
 
 .todo-content h2 {
@@ -24,38 +29,67 @@
   overflow-wrap: break-word;
 }
 
+.todo-content input {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--bg-darker);
+  color: var(--text-light);
+  font-size: 24px;
+  outline: none;
+  text-align: center;
+}
+
+.main-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.edit-button, .delete-button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.edit-button {
+  background: var(--primary-color);
+}
+
+.edit-button:hover {
+  background: #8a6ae6;
+}
+
+.delete-button {
+  background: #ff5f5f;
+}
+
+.delete-button:hover {
+  background: #ff4444;
+}
+
 .back-button {
   padding: 8px 16px;
   background: transparent;
-  border: 2px solid #9d7bff;
-  color: #9d7bff;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  background: #9d7bff;
-  color: white;
-}
-
-.todo-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.delete-button {
-  padding: 8px 16px;
-  background: #ff5f5f;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.delete-button:hover {
-  background: #ff4444;
+  background: var(--primary-color);
+  color: var(--text-light);
 } 

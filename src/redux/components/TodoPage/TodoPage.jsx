@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { deleteTodo, setSearchQuery } from "../../actions/todo.actions";
+import { deleteTodo, setSearchQuery, updateTodo } from "../../actions/todo.actions";
 import { useEffect } from "react";
 import "./TodoPage.css";
 
@@ -11,10 +12,14 @@ const TodoPage = () => {
   const todo = useSelector((state) =>
     state.todos.list.find((todo) => todo.id === id)
   );
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState("");
 
   useEffect(() => {
     if (!todo) {
       navigate("/404");
+    } else {
+      setEditedTitle(todo.title);
     }
   }, [todo, navigate]);
 
@@ -30,15 +35,41 @@ const TodoPage = () => {
     }
   };
 
+  const handleEdit = async () => {
+    if (isEditing) {
+      if (editedTitle.trim() && editedTitle !== todo.title) {
+        await dispatch(updateTodo(id, editedTitle.trim()));
+      }
+      setIsEditing(false);
+    } else {
+      setIsEditing(true);
+    }
+  };
+
   return (
     <div className="todo-page">
       <div className="todo-content">
-        <h2>{todo.title}</h2>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editedTitle}
+            onChange={(e) => setEditedTitle(e.target.value)}
+            autoFocus
+            maxLength={20}
+          />
+        ) : (
+          <h2>{todo.title}</h2>
+        )}
       </div>
-      <div className="todo-actions">
-        <button onClick={handleDelete} className="delete-button">
-          Удалить задачу
+      <div className="main-actions">
+        <button onClick={handleEdit} className="edit-button">
+          {isEditing ? "Сохранить" : "Редактировать"}
         </button>
+        <button onClick={handleDelete} className="delete-button">
+          Удалить
+        </button>
+      </div>
+      <div className="navigation">
         <button onClick={() => navigate(-1)} className="back-button">
           ← Назад
         </button>

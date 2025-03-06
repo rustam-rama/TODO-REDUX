@@ -9,6 +9,6 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 
-// Поиск и фильтрация
+// Поиск и сортировка
 export const SET_SEARCH_QUERY = "SET_SEARCH_QUERY";
 export const TOGGLE_SORT = "TOGGLE_SORT";

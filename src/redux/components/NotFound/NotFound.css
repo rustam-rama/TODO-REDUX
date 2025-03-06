@@ -1,10 +1,10 @@
 .not-found {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #1a1b26;
-  border-radius: 20px;
-  color: #fff;
+  max-width: var(--container-width);
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md);
+  background: var(--bg-dark);
+  border-radius: var(--border-radius);
+  color: var(--text-light);
   text-align: center;
 }
 
@@ -17,7 +17,7 @@
 
 .not-found h1 {
   font-size: 72px;
-  color: #9d7bff;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .not-found p {
-  color: #6c7293;
+  color: var(--text-muted);
   margin: 0;
 }
 
@@ -35,14 +35,14 @@
   margin-top: 20px;
   padding: 8px 16px;
   background: transparent;
-  border: 2px solid #9d7bff;
-  color: #9d7bff;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .back-home:hover {
-  background: #9d7bff;
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-light);
 } 

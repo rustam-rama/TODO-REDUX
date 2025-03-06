@@ -8,6 +8,7 @@ import {
   setSearchQuery,
   toggleSort,
   deleteTodoSuccess,
+  updateTodoSuccess,
 } from "../reducers/todos.reducer";
 
 // Получение задач
@@ -65,6 +66,21 @@ export const toggleTodo = (id) => async (dispatch) => {
     });
     if (!response.ok) throw new Error("Ошибка при обновлении статуса");
     dispatch(toggleTodoSuccess(id));
+  } catch (error) {
+    dispatch(setError(error.message));
+  }
+};
+
+// Обновление задачи
+export const updateTodo = (id, title) => async (dispatch) => {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title }),
+    });
+    if (!response.ok) throw new Error("Ошибка при обновлении задачи");
+    dispatch(updateTodoSuccess({ id, title }));
   } catch (error) {
     dispatch(setError(error.message));
   }

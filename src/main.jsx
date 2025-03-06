@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import TodoApp from "./TodoApp";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
 import TodoList from "./redux/components/TodoList/TodoList";
